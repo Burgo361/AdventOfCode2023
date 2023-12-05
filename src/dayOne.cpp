@@ -3,9 +3,9 @@
 int dayOne(string file_path){
     cout << "\nDay One Program Started";
 
-    uint64_t calib_sum = 0;
-    int counter = 0;
-    vector<string> input_vector = loadInput(file_path);
+    static uint64_t calib_sum = 0;
+    static int counter = 0;
+    static vector<string> input_vector = loadInput(file_path);
     if (input_vector.size() > 0){
         cout << "\nFile Loaded";
         cout << "\nSize: " << input_vector.size();
@@ -58,15 +58,15 @@ int dayOne(string file_path){
 }
 
 vector<string> loadInput(string file_path){
-    vector<string> input_lines;
-    ifstream input_file(file_path);
+    static vector<string> input_lines;
+    static ifstream input_file(file_path);
     cout << "\nFile: "<< file_path << "\n";
     cout << "\nChecking file... \n";
     if(!input_file.is_open()){
         cout<< "\nError opening file inputd1";
     } else {
         cout << "\nFile Opened";
-        std::string line; 
+        static std::string line; 
         while(std::getline(input_file, line)){
             input_lines.push_back(line);
 
@@ -79,7 +79,7 @@ vector<string> loadInput(string file_path){
 }
 
 int charIsNumber(char a){
-    string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    static string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     
     for(int i = 0; i < numbers_char.size(); i++){
         if(a == numbers_char[i]){
@@ -91,18 +91,18 @@ int charIsNumber(char a){
     return 0;
 }
 void containsNumberWord(string line, vector<char> *numbers_in_line, vector<int> *index_of_number){
-    vector<string> numbers_string = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    static vector<string> numbers_string = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    static string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     cout << "\n" << line << "\n";
     for(int i = 0; i < 10; i++){
-        size_t found = line.find(numbers_string[i]);
+        static size_t found = line.find(numbers_string[i]);
         found = line.find(numbers_string[i]);
         if(found != string::npos){
             numbers_in_line->push_back(numbers_char[i]);
             index_of_number->push_back(line.find(numbers_string[i]));
 
 
-            size_t found2;
+            static size_t found2;
             found2 = line.rfind(numbers_string[i]);
             cout << "\n" << found << "\n";
             cout << numbers_string[i].size();
