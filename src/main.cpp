@@ -2,14 +2,27 @@
 using namespace std;
 #include "main.hpp"
 int main(int argc, char *argv[]){
-    if(argc !=2 ){
-        cout << "Usage: <filename>\n" << argv[0];
+    if(argc !=3 ){
+        cout << "Usage: <filename> day <number>\n" << argv[0];
         return -1;
     }
-    string file_name = argv [1];
+    string file_name = argv[1];
+    int day_select = stoi(argv[2]);
+    cout << "\n";
+    cout << "Day: ";
+    cout << day_select;
     cout << "\nProgram Start\n";
-    dayOne(file_name);
-    dayTwo(file_name);
+    switch(day_select){
+        case 1: 
+            dayOne(file_name);
+            break;
+        case 2:
+            dayTwo(file_name);
+            break;
+        default:
+            cout << "\nInvalid Day Selection\n";
+            return 0;
+    }
 
 
 

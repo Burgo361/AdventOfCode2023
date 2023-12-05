@@ -2,4 +2,4 @@
 cd generated
 make
 cd ..
-bin/AdventOfCode2023/debug/./AdventOfCode2023 inputd1.txt
+bin/AdventOfCode2023/debug/./AdventOfCode2023 inputd1.txt 1
