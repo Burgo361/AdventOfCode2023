@@ -57,26 +57,6 @@ int dayOne(string file_path){
     return 0;
 }
 
-vector<string> loadInput(string file_path){
-    static vector<string> input_lines;
-    static ifstream input_file(file_path);
-    cout << "\nFile: "<< file_path << "\n";
-    cout << "\nChecking file... \n";
-    if(!input_file.is_open()){
-        cout<< "\nError opening file inputd1";
-    } else {
-        cout << "\nFile Opened";
-        static std::string line; 
-        while(std::getline(input_file, line)){
-            input_lines.push_back(line);
-
-        }
-       
-        input_file.close();
-    }
-
-    return input_lines;
-}
 
 int charIsNumber(char a){
     static string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};

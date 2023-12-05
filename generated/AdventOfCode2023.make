@@ -66,9 +66,11 @@ OBJECTS :=
 GENERATED += $(OBJDIR)/dayOne.o
 GENERATED += $(OBJDIR)/dayTwo.o
 GENERATED += $(OBJDIR)/main.o
+GENERATED += $(OBJDIR)/utils.o
 OBJECTS += $(OBJDIR)/dayOne.o
 OBJECTS += $(OBJDIR)/dayTwo.o
 OBJECTS += $(OBJDIR)/main.o
+OBJECTS += $(OBJDIR)/utils.o
 
 # Rules
 # #############################################
@@ -139,6 +141,9 @@ $(OBJDIR)/dayTwo.o: ../src/dayTwo.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: ../src/main.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/utils.o: ../src/utils.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 
