@@ -58,18 +58,7 @@ int dayOne(string file_path){
 }
 
 
-int charIsNumber(char a){
-    static string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    
-    for(int i = 0; i < numbers_char.size(); i++){
-        if(a == numbers_char[i]){
 
-
-            return 1;
-        }
-    }
-    return 0;
-}
 void containsNumberWord(string line, vector<char> *numbers_in_line, vector<int> *index_of_number){
     static vector<string> numbers_string = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     static string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
