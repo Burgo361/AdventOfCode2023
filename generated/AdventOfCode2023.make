@@ -64,10 +64,12 @@ GENERATED :=
 OBJECTS :=
 
 GENERATED += $(OBJDIR)/dayOne.o
+GENERATED += $(OBJDIR)/dayThree.o
 GENERATED += $(OBJDIR)/dayTwo.o
 GENERATED += $(OBJDIR)/main.o
 GENERATED += $(OBJDIR)/utils.o
 OBJECTS += $(OBJDIR)/dayOne.o
+OBJECTS += $(OBJDIR)/dayThree.o
 OBJECTS += $(OBJDIR)/dayTwo.o
 OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/utils.o
@@ -135,6 +137,9 @@ endif
 # #############################################
 
 $(OBJDIR)/dayOne.o: ../src/dayOne.cpp
+	@echo "$(notdir $<)"
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/dayThree.o: ../src/dayThree.cpp
 	@echo "$(notdir $<)"
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/dayTwo.o: ../src/dayTwo.cpp

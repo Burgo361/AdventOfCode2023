@@ -1,5 +1,3 @@
 $premake5 gmake2
-cd generated
-make
-cd ..
-bin/AdventOfCode2023/debug/./AdventOfCode2023 inputd2.txt 2  
+make -C generated
+bin/AdventOfCode2023/debug/./AdventOfCode2023 inputd3.txt 3  

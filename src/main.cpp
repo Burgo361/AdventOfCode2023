@@ -19,6 +19,9 @@ int main(int argc, char *argv[]){
         case 2:
             dayTwo(file_name);
             break;
+        case 3:
+            dayThree(file_name);
+            break;
         default:
             cout << "\nInvalid Day Selection\n";
             return 0;
