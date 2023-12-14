@@ -1,10 +1,9 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "utils.hpp"
 using namespace std;
 int dayOne(string file_path);
-vector<string> loadInput(string file_path);
-int charIsNumber(char a);
 void containsNumberWord(string line, vector<char> *numbers_in_line, vector<int> *index_of_number);
 void sortNumbers(vector<char> *numbers_in_line, vector<int> *index_of_number);
 void quickSort(vector<char> *numbers_in_line, vector<int> *index_of_number, int left, int right);

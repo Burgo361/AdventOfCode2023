@@ -1,6 +1,6 @@
 #include "utils.hpp"
 
-vector<string> loadInput(string file_path){
+vector<string> load_input(string file_path){
     vector<string> input_lines;
     ifstream input_file(file_path);
     cout << "\nFile: "<< file_path << "\n";

@@ -3,9 +3,9 @@
 int dayOne(string file_path){
     cout << "\nDay One Program Started";
 
-    static uint64_t calib_sum = 0;
+    static int calib_sum = 0;
     static int counter = 0;
-    static vector<string> input_vector = loadInput(file_path);
+    static vector<string> input_vector = load_input(file_path);
     if (input_vector.size() > 0){
         cout << "\nFile Loaded";
         cout << "\nSize: " << input_vector.size();
