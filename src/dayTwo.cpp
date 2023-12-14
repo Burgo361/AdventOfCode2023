@@ -1,10 +1,4 @@
 #include "dayTwo.hpp"
-struct game_round {
-    int blue_cube;
-    int green_cube;
-    int red_cube;
-};
-vector<game_round> split_game_into_rounds(string game);
 
 int dayTwo(string file_path){
     static int max_red = 12;
@@ -23,12 +17,9 @@ int dayTwo(string file_path){
     int sum_of_game_ids = 0;
     int sum_of_game_minpowered = 0;
     for(int i = 0; i < input_vector.size(); i++){
-        cout << "\n" << input_vector[i] << "\n";
         int first_whitespace_index = find_char_in_string(input_vector[i], ' ');
         if(charIsNumber(input_vector[i][first_whitespace_index+1])){
-            cout << "\n";
             int game_id = extract_number_from_str(input_vector[i], first_whitespace_index+1);
-            cout << "\n";
             if(input_vector[i].find(";")){
                 vector<game_round> game_rounds = split_game_into_rounds(input_vector[i]);
                 int highest_blue = 0;
@@ -48,19 +39,11 @@ int dayTwo(string file_path){
                         game_rounds[j].blue_cube = highest_blue;
                     }
                 }
-                cout << "\nBlue: " << highest_blue;
-                cout << "\nGreen: " << highest_green;
-                cout << "\nRed: " << highest_red;
                 if(highest_blue <= max_blue && highest_green <= max_green && highest_red <= max_red){
                     sum_of_game_ids += game_id;
-                    cout << "\nGame Added \n";
-                    cout << sum_of_game_ids;
-                    cout << "\n";
                 }
                 sum_of_game_minpowered += (highest_green * highest_red * highest_blue);
             }
-            cout << "\n";
-
         }
     }
     cout << sum_of_game_ids;
@@ -148,5 +131,4 @@ vector<game_round> split_game_into_rounds(string game){
 
     return game_rounds;
 }
-
 
