@@ -58,7 +58,7 @@ vector<game_round> split_game_into_rounds(string game){
     static string round_string;
     static bool last_round;
 
-    if(game.find(":")) {
+    if(game.find(":") != string::npos) {
         last_round = 0;
         game_string = game.substr(game.find(":")+2, game.size());
         while(true){
