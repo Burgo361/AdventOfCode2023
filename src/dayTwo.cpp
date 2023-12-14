@@ -5,7 +5,7 @@ int dayTwo(string file_path){
     static int max_green = 13;
     static int max_blue =14;
 
-    vector<string> input_vector = loadInput(file_path);
+    vector<string> input_vector = load_input(file_path);
     if (input_vector.size() > 0){
         cout << "\nFile Loaded";
         cout << "\nSize: " << input_vector.size();

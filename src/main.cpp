@@ -7,6 +7,7 @@ int main(int argc, char *argv[]){
         return -1;
     }
     string file_name = argv[1];
+    cout << file_name;
     int day_select = stoi(argv[2]);
     cout << "\n";
     cout << "Day: ";
