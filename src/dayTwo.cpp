@@ -13,7 +13,6 @@ int dayTwo(string file_path){
         cout << "\nFile Empty";
         return 0;
     }
-    
     int sum_of_game_ids = 0;
     int sum_of_game_minpowered = 0;
     for(int i = 0; i < input_vector.size(); i++){
@@ -39,15 +38,15 @@ int dayTwo(string file_path){
                         game_rounds[j].blue_cube = highest_blue;
                     }
                 }
-                if(highest_blue <= max_blue && highest_green <= max_green && highest_red <= max_red){
+                if(highest_blue <= 14 && highest_green <= 13 && highest_red <= 12){
                     sum_of_game_ids += game_id;
                 }
                 sum_of_game_minpowered += (highest_green * highest_red * highest_blue);
             }
         }
     }
-    cout << sum_of_game_ids;
-    cout << "\nPart 2: " << sum_of_game_minpowered;
+    cout << "\nPart 1: " << sum_of_game_ids;
+    cout << "\nPart 2: " << sum_of_game_minpowered << "\n";
     return 0;
 }
 

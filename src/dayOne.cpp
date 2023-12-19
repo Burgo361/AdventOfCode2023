@@ -4,6 +4,7 @@ int dayOne(string file_path){
     cout << "\nDay One Program Started";
 
     static int calib_sum = 0;
+    static int calib_sum_p2 = 0;
     static int counter = 0;
     static vector<string> input_vector = load_input(file_path);
     if (input_vector.size() > 0){
@@ -17,6 +18,31 @@ int dayOne(string file_path){
     for(int i = 0; i < input_vector.size(); i++){
         vector<char> numbers_in_line = {};
         vector<int> index_of_number = {};
+        for(int j = 0; j < input_vector[i].size(); j++){
+            if(charIsNumber(input_vector[i][j])){
+                numbers_in_line.push_back((char)input_vector[i][j]); 
+                index_of_number.push_back(j);
+            }
+
+        }
+
+        sortNumbers(&numbers_in_line, &index_of_number);
+
+        string temp = ""; 
+        temp = temp + (char)numbers_in_line[0]; 
+        temp = temp + (char)numbers_in_line[numbers_in_line.size()-1];
+        calib_sum += stoi(temp);
+        counter++;
+    }
+    
+    cout << "\n";
+    cout << "Part 1: ";
+    cout << calib_sum;
+    cout << "\n";
+   
+    for(int i = 0; i < input_vector.size(); i++){
+        vector<char> numbers_in_line = {};
+        vector<int> index_of_number = {};
         containsNumberWord(input_vector[i], &numbers_in_line, &index_of_number);
         for(int j = 0; j < input_vector[i].size(); j++){
             if(charIsNumber(input_vector[i][j])){
@@ -27,33 +53,19 @@ int dayOne(string file_path){
         }
 
         sortNumbers(&numbers_in_line, &index_of_number);
-        for(int i =0; i < numbers_in_line.size(); i++){
-            cout << "\n";
-            cout << numbers_in_line[i] << ":" << index_of_number[i];
-        }
 
-        cout << "\n";
         string temp = ""; 
         temp = temp + (char)numbers_in_line[0]; 
         temp = temp + (char)numbers_in_line[numbers_in_line.size()-1];
-        cout<< "\n";
-        cout << temp[0];
-        cout << temp[1];
-        cout << ", ";
-        calib_sum += stoi(temp);
+        calib_sum_p2 += stoi(temp);
         counter++;
-        cout << "\nCounter:" << counter;
-        cout << ".";
-        cout << calib_sum;
-        cout << "\n";
     }
     
     cout << "\n";
-    cout << calib_sum;
+    cout << "Part 2: ";
+    cout << calib_sum_p2;
     cout << "\n";
-   
 
-    cout << "\nDay One Program Completed\n";
     return 0;
 }
 
@@ -62,7 +74,6 @@ int dayOne(string file_path){
 void containsNumberWord(string line, vector<char> *numbers_in_line, vector<int> *index_of_number){
     static vector<string> numbers_string = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     static string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    cout << "\n" << line << "\n";
     for(int i = 0; i < 10; i++){
         static size_t found = line.find(numbers_string[i]);
         found = line.find(numbers_string[i]);
@@ -73,8 +84,6 @@ void containsNumberWord(string line, vector<char> *numbers_in_line, vector<int> 
 
             static size_t found2;
             found2 = line.rfind(numbers_string[i]);
-            cout << "\n" << found << "\n";
-            cout << numbers_string[i].size();
             if(found2 != string::npos && found != found2){
                 numbers_in_line->push_back(numbers_char[i]);
                 index_of_number->push_back(found2);

@@ -23,13 +23,8 @@ vector<string> load_input(string file_path){
 
 int charIsNumber(char a){
     string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    
-    for(int i = 0; i < numbers_char.size(); i++){
-        if(a == numbers_char[i]){
-
-
-            return 1;
-        }
+    if(numbers_char.find(a) != string::npos){
+        return 1;
     }
     return 0;
 }
