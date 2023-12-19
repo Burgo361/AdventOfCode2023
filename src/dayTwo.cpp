@@ -1,6 +1,6 @@
 #include "dayTwo.hpp"
 
-int dayTwo(string file_path){
+int day_two(string file_path){
     static int max_red = 12;
     static int max_green = 13;
     static int max_blue =14;
@@ -17,7 +17,7 @@ int dayTwo(string file_path){
     int sum_of_game_minpowered = 0;
     for(int i = 0; i < input_vector.size(); i++){
         int first_whitespace_index = find_char_in_string(input_vector[i], ' ');
-        if(charIsNumber(input_vector[i][first_whitespace_index+1])){
+        if(char_is_number(input_vector[i][first_whitespace_index+1])){
             int game_id = extract_number_from_str(input_vector[i], first_whitespace_index+1);
             if(input_vector[i].find(";")){
                 vector<game_round> game_rounds = split_game_into_rounds(input_vector[i]);
@@ -71,7 +71,7 @@ vector<game_round> split_game_into_rounds(string game){
 
             if(round_string.find("blue") != string::npos){
                 int number_index = round_string.find("blue")-2;
-                if(charIsNumber(round_string[number_index-1])){
+                if(char_is_number(round_string[number_index-1])){
                     string temp;
                     temp += round_string[number_index-1];
                     temp += round_string[number_index];
@@ -88,7 +88,7 @@ vector<game_round> split_game_into_rounds(string game){
             }
             if(round_string.find("green") != string::npos){
                  int number_index = round_string.find("green")-2;
-                if(charIsNumber(round_string[number_index-1])){
+                if(char_is_number(round_string[number_index-1])){
                     string temp;
                     temp += round_string[number_index-1];
                     temp += round_string[number_index];
@@ -105,7 +105,7 @@ vector<game_round> split_game_into_rounds(string game){
             }
             if(round_string.find("red") != string::npos){
                 int number_index = round_string.find("red")-2;
-                if(charIsNumber(round_string[number_index-1])){
+                if(char_is_number(round_string[number_index-1])){
                     string temp;
                     temp += round_string[number_index-1];
                     temp += round_string[number_index];

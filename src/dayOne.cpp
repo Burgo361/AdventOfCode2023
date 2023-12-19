@@ -1,6 +1,6 @@
 #include "dayOne.hpp"
 
-int dayOne(string file_path){
+int day_one(string file_path){
     cout << "\nDay One Program Started";
 
     static int calib_sum = 0;
@@ -19,7 +19,7 @@ int dayOne(string file_path){
         vector<char> numbers_in_line = {};
         vector<int> index_of_number = {};
         for(int j = 0; j < input_vector[i].size(); j++){
-            if(charIsNumber(input_vector[i][j])){
+            if(char_is_number(input_vector[i][j])){
                 numbers_in_line.push_back((char)input_vector[i][j]); 
                 index_of_number.push_back(j);
             }
@@ -45,7 +45,7 @@ int dayOne(string file_path){
         vector<int> index_of_number = {};
         containsNumberWord(input_vector[i], &numbers_in_line, &index_of_number);
         for(int j = 0; j < input_vector[i].size(); j++){
-            if(charIsNumber(input_vector[i][j])){
+            if(char_is_number(input_vector[i][j])){
                 numbers_in_line.push_back((char)input_vector[i][j]); 
                 index_of_number.push_back(j);
             }

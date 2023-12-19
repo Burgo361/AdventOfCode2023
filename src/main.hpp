@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
 using namespace std;
-int dayOne(string file_path);
-int dayTwo(string file_path);
-int dayThree(string file_path);
+int day_one(string file_path);
+int day_two(string file_path);
+int day_three(string file_path);

@@ -21,14 +21,13 @@ vector<string> load_input(string file_path){
     return input_lines;
 }
 
-int charIsNumber(char a){
-    string numbers_char = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-    if(numbers_char.find(a) != string::npos){
+
+int char_is_number(char a){
+    if(a >= '0' && a <= '9'){
         return 1;
     }
     return 0;
 }
-
 int find_char_in_string(string string_to_check, char char_key){
     for(int i = 0; i < string_to_check.length(); i++){
         if(string_to_check[i] == ' '){
@@ -42,7 +41,7 @@ int extract_number_from_str(string string_src, int start_index){
     string temp = "";
     int i = start_index;
     while(true){
-        if(charIsNumber(string_src[i])){
+        if(char_is_number(string_src[i])){
             temp += string_src[i];
         } else {
             break;

@@ -1,7 +1,7 @@
 #include "dayThree.hpp"
 bool is_symbol(char character);
 
-int dayThree(string file_path){
+int day_three(string file_path){
     
     return 0;
 }

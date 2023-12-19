@@ -14,13 +14,13 @@ int main(int argc, char *argv[]){
     cout << "\nProgram Start\n";
     switch(day_select){
         case 1: 
-            dayOne(file_name);
+            day_one(file_name);
             break;
         case 2:
-            dayTwo(file_name);
+            day_two(file_name);
             break;
         case 3:
-            dayThree(file_name);
+            day_three(file_name);
             break;
         default:
             cout << "\nInvalid Day Selection\n";
